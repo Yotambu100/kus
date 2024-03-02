@@ -30,6 +30,10 @@ runs:
       shell: bash
       run: pip install pycobertura==3.3.1
 
+    - name: test
+      shell: bash
+      run: pycobertura --help
+
     - name: generate report
       shell: bash
       run: |
