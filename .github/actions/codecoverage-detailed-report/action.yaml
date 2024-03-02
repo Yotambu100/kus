@@ -1,0 +1,40 @@
+name: code-coverage-detailed-report
+description: generate detailed compare current (new) code vs. main (base) branch report
+inputs:
+  base_source:
+    description: relative path to base source code file
+    required: true
+  new_source:
+    description: relative path to new source code file
+    required: true
+  base_cobertura:
+    description: relative path to base cobertura file
+    required: true
+  new_cobertura:
+    description: relative path to new cobertura file
+    required: true
+  html_output:
+    description: path for html output path
+    required: true
+
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+          python-version: '3.11'  # Specify the Python version
+
+    - name: install pycobertura
+      shell: bash
+      run: pip install pycobertura==3.3.1
+
+    - name: generate report
+      shell: bash
+      run: |
+        pycobertura diff \
+        --format html \
+        --output ${{ inputs.html_output }} ${{ inputs.base_cobertura }} ${{ inputs.new_cobertura }} \  
+        --source1 ${{ inputs.base_source }} \
+        --source2 ${{ inputs.new_source }}
