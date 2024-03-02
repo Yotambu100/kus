@@ -1,4 +1,4 @@
-from example.python.base.main_base import add
+from base.base import add
 
 
 def test_add():
