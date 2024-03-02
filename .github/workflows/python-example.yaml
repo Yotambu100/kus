@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: generate-report
-        uses: ./github/actions/codecoverage-detailed-report
+        uses: ./.github/actions/codecoverage-detailed-report
         with:
             base_source: example/python/base
             new_source: example/python/new
