@@ -32,7 +32,7 @@ runs:
 
     - name: test
       shell: bash
-      run: pycobertura --help
+      run: ls
 
     - name: generate report
       shell: bash
