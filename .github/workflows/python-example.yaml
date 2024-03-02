@@ -1,0 +1,17 @@
+name: "python-code-coverage-example"
+on: 
+  workflow_dispatch:
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: "Checkout code"
+      uses: actions/checkout@v4
+      
+    - name: generate-report
+      uses: codecoverage-detailed-report
+        with:
+          base_source: example/python/base
+          new_source: example/python/new
+          base_cobertura: example/python/base/base.xml
+          new_cobertura: example/python/new/new.xml
+          html_output: coverage.html
