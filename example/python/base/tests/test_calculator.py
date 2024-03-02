@@ -1,4 +1,4 @@
-from base.base import add
+from base.calculator import add
 
 
 def test_add():

@@ -1,4 +1,4 @@
-from new.new import add, minus
+from new.calculator import add
 
 
 def test_add():
