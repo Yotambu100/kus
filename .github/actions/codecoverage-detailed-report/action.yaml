@@ -33,8 +33,4 @@ runs:
     - name: generate report
       shell: bash
       run: |
-        pycobertura diff \
-        --format html \
-        --output ${{ inputs.html_output }} ${{ inputs.base_cobertura }} ${{ inputs.new_cobertura }} \  
-        --source1 ${{ inputs.base_source }} \
-        --source2 ${{ inputs.new_source }}
+        pycobertura diff --format html --output ${{ inputs.html_output }} ${{ inputs.base_cobertura }} ${{ inputs.new_cobertura }} --source1 ${{ inputs.base_source }} --source2 ${{ inputs.new_source }}
